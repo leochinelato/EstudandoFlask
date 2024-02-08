@@ -1,0 +1,23 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<table class="table table-bordered table-responsive table-striped">
+    <thead class="thead-default">
+        <tr>
+            <th>Treino</th>
+            <th>Categoria</th>
+            <th>Carga</th>
+            <th>Próxima Carga</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for treino in treinos %}
+        <tr>
+            <td>{{ treino.nome }}</td>
+            <td>{{ treino.categoria }}</td>
+            <td>{{ treino.carga }}</td>
+            <td>{{ treino.proxima_carga }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
