@@ -2,11 +2,11 @@ from flask import Flask, render_template, request, redirect, session, flash, url
 
 
 class Treino:
-    def __init__(self, nome, categoria, carga):
+    def __init__(self, nome, categoria, carga, repeticoes):
         self.nome = nome
         self.categoria = categoria
         self.carga = carga
-        self.proxima_carga = carga
+        self.repeticoes = repeticoes
 
     
 class Usuario:
@@ -48,7 +48,8 @@ def criar():
     nome = request.form["nome"]
     categoria = request.form["categoria"]
     carga = request.form["carga"]
-    treino = Treino(nome, categoria, carga)
+    repeticoes = request.form["repeticoes"]
+    treino = Treino(nome, categoria, carga, repeticoes)
     lista.append(treino)
     return redirect(url_for("index"))
 
